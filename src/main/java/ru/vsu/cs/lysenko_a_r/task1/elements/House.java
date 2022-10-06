@@ -105,6 +105,7 @@ public class House {
         g.setColor(oldColor);
         g.setStroke(oldStroke);
     }
+
     void drawChimney(Graphics2D g) {
         Color oldColor = g.getColor();
         g.setColor(new Color(0, 74, 124));
@@ -121,6 +122,7 @@ public class House {
         g.drawRect(605, 240, 30, 20);
         g.setColor(oldColor);
     }
+
     void drawTop(Graphics2D g) {
         Color oldColor = g.getColor();
         Stroke oldStroke = g.getStroke();
@@ -152,7 +154,5 @@ public class House {
         g.draw(p);
         g.setColor(oldColor);
         g.setStroke(oldStroke);
-
-
     }
 }

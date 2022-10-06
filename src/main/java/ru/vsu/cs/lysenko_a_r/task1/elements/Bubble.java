@@ -25,6 +25,7 @@ public class Bubble {
 
     public void move() {
         this.shiftY += Math.abs(rnd.nextInt() % 2);
+        this.shiftY %= 10;
     }
 
     public void reset() {

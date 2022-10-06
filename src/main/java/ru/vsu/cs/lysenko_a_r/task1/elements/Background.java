@@ -20,6 +20,10 @@ public class Background {
         drawSky(g);
         drawSand(g);
         g.setColor(oldColor);
+        drawStone(g, 30 ,10, 200, 400);
+        drawStone(g, 30, 10, 670, 430);
+        drawStone(g, 40, 12, 100, 470);
+        drawRoad(g);
     }
 
     private void drawSky(Graphics2D g) {
@@ -44,17 +48,30 @@ public class Background {
         g.fill(path);
         g.setColor(oldColor);
     }
-    private void drawStone(Graphics2D g, int size, int startX, int startY) {
+    private void drawStone(Graphics2D g, int length, int width, int startX, int startY) {
         Color oldColor = g.getColor();
         g.setColor(new Color(70, 70, 70));
-        GeneralPath path = new GeneralPath();
-        if (startX == 0) {
-            startX = 1;
-        }
-        path.moveTo(startX, startY);
-        path.curveTo(startX, startY, size * startX / 3, startY, size * startX, startY);
-        path.lineTo(startX, startY);
-        g.fill(path);
+        g.fillOval(startX, startY, length, width);
+        g.setColor(oldColor);
+    }
+    private void drawRoad(Graphics2D g) {
+        Color oldColor = g.getColor();
+        Stroke oldStroke = g.getStroke();
+        g.setStroke(new BasicStroke(3));
+        g.setColor(new Color(70, 74, 69));
+        g.fillRect(0, 500, 800, 100);
+        g.fillRect(470, 460, 60, 100);
+        g.setColor(Color.BLACK);
+        g.drawLine(0, 500, 470, 500);
+        g.drawLine(470, 500, 470, 460);
+        g.drawLine(470, 460, 530, 460);
+        g.drawLine(530, 460, 530, 500);
+        g.drawLine(530, 500, 800, 500);
+        g.setColor(Color.WHITE);
+        g.fillRect(100, 530, 150, 10);
+        g.fillRect(350, 530, 150, 10);
+        g.fillRect(600, 530, 150, 10);
+        g.setStroke(oldStroke);
         g.setColor(oldColor);
     }
 }

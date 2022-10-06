@@ -31,7 +31,6 @@ public class DrawPanel extends JPanel {
             if (bubbles.stream().allMatch(elem -> elem.getUpperBound() <= 0)) {
                 bubbles.forEach((bubble -> {
                     bubble.reset();
-                    System.out.println("g");
                     repaint();
                 }));
             }
