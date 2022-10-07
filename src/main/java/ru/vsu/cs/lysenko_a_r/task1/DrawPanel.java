@@ -21,11 +21,11 @@ public class DrawPanel extends JPanel {
         bg = new Background();
         hs = new House();
         bubbles = new ArrayList<>();
-        bubbles.add(new Bubble(605, 200, 30, 30, new Color(236, 7, 91, 100)));
-        bubbles.add(new Bubble(605, 130, 30, 30, new Color(68, 155, 222, 100)));
-        bubbles.add(new Bubble(605, 50, 30, 30, new Color(53, 216, 113, 100)));
+        bubbles.add(new Bubble(605, 200, 30, 30, 30, new Color(236, 7, 91, 100)));
+        bubbles.add(new Bubble(605, 130, 30, 30, 30, new Color(68, 155, 222, 100)));
+        bubbles.add(new Bubble(605, 50, 30, 30, 30, new Color(53, 216, 113, 100)));
 
-        int delay = 500;
+        int delay = 300;
         Timer timer = new Timer(delay, listener -> {
             t = (t + delay) % Integer.MAX_VALUE;
             if (bubbles.stream().allMatch(elem -> elem.getUpperBound() <= 0)) {
@@ -42,7 +42,6 @@ public class DrawPanel extends JPanel {
         timer.start();
 
 
-
     }
 
     @Override
@@ -53,7 +52,5 @@ public class DrawPanel extends JPanel {
         hs.draw(g);
 
         bubbles.forEach((bubble) -> bubble.draw(g));
-
-
     }
 }
